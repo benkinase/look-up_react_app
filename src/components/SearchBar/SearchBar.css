@@ -1,19 +1,12 @@
 /*07.04.2020*/
-/* :root {
-  --color-1: #a7874b;
-  --color-2: #f0c36c;
-  --color-3: #cca353;
-  --color-4: #fff;
-  --color-5: #d4cfcf;
-} */
 :root {
-  --color-1: #0a5079;
+  --color-1: #095e8f;
   --color-2: #04a3ff;
-  --color-3: #055a92;
+  --color-3: #054d7e;
   --color-4: #fff;
   --color-5: #d4cfcf;
-  --bg-1: rgb(143, 83, 5);
-  --bg-2: rgb(78, 2, 49);
+  --bg-1: #8f5305;
+  --bg-2: #4e0231;
 }
 .SearchBar {
   display: flex;
@@ -30,7 +23,7 @@
 .SearchBar-sort-options ul {
   display: flex;
   justify-content: center;
-  margin-bottom: 2.22rem;
+  margin-bottom: 2.25rem;
   color: var(--color-4);
 }
 
@@ -42,7 +35,7 @@
   line-height: 1.13;
   text-align: center;
   font-weight: 600;
-  font-size: 0.83rem;
+  font-size: 0.85rem;
   transition: color 0.25s;
 }
 
@@ -58,9 +51,10 @@
 
 .SearchBar-fields {
   display: flex;
-  justify-content: center;
   justify-content: space-around;
-  margin-bottom: 2.88rem;
+  align-items: center;
+
+  margin-bottom: 2.85rem;
 }
 
 .SearchBar-fields input {
@@ -69,7 +63,7 @@
   margin-right: 2.22rem;
   border: 2px solid var(--color-4);
   border-radius: 10px;
-  font-size: 0.77rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #206085;
 }

@@ -4,12 +4,7 @@ import "./Business.css";
 function Business({ business }) {
   return (
     <div className="Business">
-      <div
-        className="image-container"
-        onClick={() => {
-          window.open(business.url, "_blank");
-        }}
-      >
+      <div className="image-container">
         <img src={business.imageSrc} alt={business.name} />
       </div>
       <h2>{business.name}</h2>

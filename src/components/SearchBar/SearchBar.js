@@ -14,7 +14,6 @@ class SearchBar extends Component {
       "Best Match": "best_match",
       "Highest Rated": "rating",
       "Most Reviewed": "review_count",
-      "Closest To Me": "distance",
     };
   }
 
@@ -123,8 +122,10 @@ export default SearchBar;
 //     sortBy: "best_match",
 //   };
 
-//   const [state, setstate] = useState(initialState);
-//   console.log(state.sortBy);
+//   const [term, setTerm] = useState("");
+//   const [location, setLocation] = useState("");
+//   const [sortBy, setSortBy] = useState("best_match");
+//   console.log(sortBy);
 
 //   const sortByOptions = {
 //     "Best Match": "best_match",
@@ -133,54 +134,56 @@ export default SearchBar;
 //     "Closest To Me": "distance",
 //   };
 
-//   const getSortByClass = (sortByOption) => {
-//     if (state.sortBy === sortByOption) {
+//   function getSortByClass(sortByOption) {
+//     if (sortBy === sortByOption) {
 //       return "active";
 //     } else {
 //       return "";
 //     }
-//   };
-//   const handleSortByChange = (sortByOption) => {
-//     setstate({ sortBy: sortByOption }, () => {
-//       props.searchYelp(state.term, state.location, state.sortBy);
+//   }
+//   function handleSortByChange(sortByOption) {
+//     setSortBy(sortByOption, () => {
+//       console.log(sortByOption);
+//       props.searchYelp(term, location, sortBy);
 //     });
-//   };
+//   }
 
-//   const handleTermChange = (e) => {
-//     setstate({ ...state, term: e.target.value });
-//   };
+//   // const handleTermChange = (e) => {
+//   //   setState({ ...state, term: e.target.value });
+//   // };
 
-//   const handleLocationChange = (e) => {
-//     setstate({ ...state, location: e.target.value });
-//   };
+//   // const handleLocationChange = (e) => {
+//   //   setState({ ...state, location: e.target.value });
+//   // };
 
-//   const handleSearch = (e) => {
+//   function handleSearch(e) {
 //     e.preventDefault();
-//     if (state.term && state.location)
-//       props.searchYelp(state.term, state.location, state.sortBy);
-//     setstate({ term: "", location: "" });
-//   };
+//     if (term && location) props.searchYelp(term, location, sortBy);
+//     setTerm("");
+//     setLocation("");
+//   }
 
-//   const renderSortByOptions = () => {
+//   function renderSortByOptions() {
 //     return Object.keys(sortByOptions).map((sortByOption) => {
-//       //console.log(sortByOption);
 //       let sortByOptionValue = sortByOptions[sortByOption];
 //       return (
 //         <li
 //           key={sortByOptionValue}
 //           className={getSortByClass(sortByOptionValue)}
-//           onClick={() => handleSortByChange(sortByOptionValue)}
+//           onClick={handleSortByChange.bind(this, sortByOptionValue)}
 //         >
 //           {sortByOption}
 //         </li>
 //       );
 //     });
-//   };
+//   }
 
 //   const handleKeyPress = (e) => {
-//     if (e.key === "Enter" && state.term && state.location) {
-//       props.searchYelp(state.term, state.location, state.sortBy);
-//       e.preventDefault();
+//     e.preventDefault();
+//     if (e.key === "Enter" && term && location) {
+//       props.searchYelp(term, location, sortBy);
+//       setTerm("");
+//       setLocation("");
 //     }
 //   };
 
@@ -193,14 +196,16 @@ export default SearchBar;
 //         <div className="input-control">
 //           <input
 //             placeholder="Search Businesses"
-//             onChange={handleTermChange}
+//             value={term}
+//             onChange={(e) => setTerm(e.target.value)}
 //             onKeyUp={handleKeyPress}
 //           />
 //         </div>
 //         <div className="input-control">
 //           <input
 //             placeholder="Where?"
-//             onChange={handleLocationChange}
+//             value={location}
+//             onChange={(e) => setLocation(e.target.value)}
 //             onKeyUp={handleKeyPress}
 //           />
 //         </div>
