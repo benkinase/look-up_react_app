@@ -1,0 +1,7 @@
+/*07.04.2020*/
+.BusinessList {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 4rem 9%;
+}

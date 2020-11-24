@@ -1,0 +1,122 @@
+/*07.04.2020*/
+/* :root {
+  --color-1: #a7874b;
+  --color-2: #f0c36c;
+  --color-3: #cca353;
+  --color-4: #fff;
+  --color-5: #d4cfcf;
+} */
+:root {
+  --color-1: #0a5079;
+  --color-2: #04a3ff;
+  --color-3: #055a92;
+  --color-4: #fff;
+  --color-5: #d4cfcf;
+  --bg-1: rgb(143, 83, 5);
+  --bg-2: rgb(78, 2, 49);
+}
+.SearchBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-image: url("./background_search_desktop.jpg"); */
+  background-image: linear-gradient(to bottom, var(--bg-1), var(--bg-2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 25rem;
+  opacity: 0.8;
+}
+
+.SearchBar-sort-options ul {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.22rem;
+  color: var(--color-4);
+}
+
+.SearchBar-sort-options li {
+  cursor: pointer;
+  width: 4.33rem;
+  border-bottom: 1px solid var(--color-4);
+  padding: 0 2.58rem 0.33rem 2.58rem;
+  line-height: 1.13;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.83rem;
+  transition: color 0.25s;
+}
+
+.SearchBar-sort-options li:hover {
+  color: var(--color-5);
+}
+
+.SearchBar-sort-options li.active,
+.SearchBar-sort-options li.active:hover {
+  border-bottom: 1px solid var(--color-2);
+  color: var(--color-2);
+}
+
+.SearchBar-fields {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 2.88rem;
+}
+
+.SearchBar-fields input {
+  width: 12.5rem;
+  padding: 0.66rem 1rem;
+  margin-right: 2.22rem;
+  border: 2px solid var(--color-4);
+  border-radius: 10px;
+  font-size: 0.77rem;
+  font-weight: 500;
+  color: #206085;
+}
+
+.SearchBar-fields input:last-child {
+  margin-right: 0;
+}
+
+.SearchBar-submit {
+  text-align: center;
+}
+
+.SearchBar-submit button {
+  text-decoration: none;
+  letter-spacing: 0.2rem;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 0.72rem 1.7rem;
+  background-color: var(--color-3);
+  color: var(--color-4);
+  font-weight: 600;
+  outline: none;
+  transition: background-color 0.5s linear;
+}
+
+.SearchBar-submit button:hover {
+  cursor: pointer;
+  background-color: var(--color-1);
+}
+.SearchBar-submit button:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 560px) {
+  .SearchBar {
+    /* background-image: url("./background_search_mobile.jpg"); */
+    background-image: linear-gradient(to bottom, var(--bg-2), var(--bg-1));
+  }
+
+  .SearchBar-sort-options ul {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .SearchBar-fields {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+  }
+}
