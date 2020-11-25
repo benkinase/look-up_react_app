@@ -87,7 +87,7 @@ class SearchBar extends Component {
         <div className="SearchBar-fields">
           <div className="input-control">
             <input
-              placeholder="Search Businesses"
+              placeholder="Enter term"
               onChange={this.handleTermChange}
               onKeyUp={this.handleKeyPress}
             />
