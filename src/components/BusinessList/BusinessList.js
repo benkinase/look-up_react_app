@@ -3,7 +3,10 @@ import "./BusinessList.css";
 import Business from "../Business/Business";
 
 const BusinessList = (props) => {
-  return (
+  console.log(props.error);
+  return props.error ? (
+    <div>{props.error}</div>
+  ) : (
     <div className="BusinessList">
       {props.businesses?.map((business) => {
         return <Business business={business} key={business.id} />;

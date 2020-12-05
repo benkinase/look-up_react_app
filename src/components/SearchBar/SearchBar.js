@@ -26,6 +26,7 @@ class SearchBar extends Component {
   };
   handleSortByChange = (sortByOption) => {
     this.setState({ sortBy: sortByOption }, () => {
+      if (!this.state.term || !this.state.location) return false;
       this.props.searchYelp(
         this.state.term,
         this.state.location,
@@ -69,7 +70,12 @@ class SearchBar extends Component {
 
   handleKeyPress = (e) => {
     e.preventDefault();
-    if (e.key === "Enter" && this.state.term && this.state.location) {
+    if (
+      e.key === "Enter" &&
+      this.state.term &&
+      this.state.location &&
+      this.state.sortBy
+    ) {
       this.props.searchYelp(
         this.state.term,
         this.state.location,
@@ -87,7 +93,7 @@ class SearchBar extends Component {
         <div className="SearchBar-fields">
           <div className="input-control">
             <input
-              placeholder="Enter term"
+              placeholder="Search term"
               onChange={this.handleTermChange}
               onKeyUp={this.handleKeyPress}
             />
@@ -111,112 +117,3 @@ class SearchBar extends Component {
 }
 
 export default SearchBar;
-
-// import React, { useState } from "react";
-// import "./SearchBar.css";
-
-// const SearchBar = (props) => {
-//   const initialState = {
-//     term: "",
-//     location: "",
-//     sortBy: "best_match",
-//   };
-
-//   const [term, setTerm] = useState("");
-//   const [location, setLocation] = useState("");
-//   const [sortBy, setSortBy] = useState("best_match");
-//   console.log(sortBy);
-
-//   const sortByOptions = {
-//     "Best Match": "best_match",
-//     "Highest Rated": "rating",
-//     "Most Reviewed": "review_count",
-//     "Closest To Me": "distance",
-//   };
-
-//   function getSortByClass(sortByOption) {
-//     if (sortBy === sortByOption) {
-//       return "active";
-//     } else {
-//       return "";
-//     }
-//   }
-//   function handleSortByChange(sortByOption) {
-//     setSortBy(sortByOption, () => {
-//       console.log(sortByOption);
-//       props.searchYelp(term, location, sortBy);
-//     });
-//   }
-
-//   // const handleTermChange = (e) => {
-//   //   setState({ ...state, term: e.target.value });
-//   // };
-
-//   // const handleLocationChange = (e) => {
-//   //   setState({ ...state, location: e.target.value });
-//   // };
-
-//   function handleSearch(e) {
-//     e.preventDefault();
-//     if (term && location) props.searchYelp(term, location, sortBy);
-//     setTerm("");
-//     setLocation("");
-//   }
-
-//   function renderSortByOptions() {
-//     return Object.keys(sortByOptions).map((sortByOption) => {
-//       let sortByOptionValue = sortByOptions[sortByOption];
-//       return (
-//         <li
-//           key={sortByOptionValue}
-//           className={getSortByClass(sortByOptionValue)}
-//           onClick={handleSortByChange.bind(this, sortByOptionValue)}
-//         >
-//           {sortByOption}
-//         </li>
-//       );
-//     });
-//   }
-
-//   const handleKeyPress = (e) => {
-//     e.preventDefault();
-//     if (e.key === "Enter" && term && location) {
-//       props.searchYelp(term, location, sortBy);
-//       setTerm("");
-//       setLocation("");
-//     }
-//   };
-
-//   return (
-//     <div className="SearchBar">
-//       <div className="SearchBar-sort-options">
-//         <ul>{renderSortByOptions()}</ul>
-//       </div>
-//       <div className="SearchBar-fields">
-//         <div className="input-control">
-//           <input
-//             placeholder="Search Businesses"
-//             value={term}
-//             onChange={(e) => setTerm(e.target.value)}
-//             onKeyUp={handleKeyPress}
-//           />
-//         </div>
-//         <div className="input-control">
-//           <input
-//             placeholder="Where?"
-//             value={location}
-//             onChange={(e) => setLocation(e.target.value)}
-//             onKeyUp={handleKeyPress}
-//           />
-//         </div>
-//       </div>
-//       <div className="SearchBar-submit">
-//         <button onClick={handleSearch}>
-//           {props.isLoading ? "Loading..." : "Search Now"}
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SearchBar;

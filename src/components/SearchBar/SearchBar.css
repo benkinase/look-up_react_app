@@ -1,12 +1,12 @@
 /*07.04.2020*/
 :root {
-  --color-1: #095e8f;
-  --color-2: #04a3ff;
+  --color-1: #086499;
+  --color-2: #97ff42;
   --color-3: #054d7e;
   --color-4: #fff;
   --color-5: #d4cfcf;
-  --bg-1: #8f5305;
-  --bg-2: #4e0231;
+  --bg-1: #045f44;
+  --bg-2: #6e0546;
 }
 .SearchBar {
   display: flex;
@@ -17,7 +17,11 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 25rem;
-  opacity: 0.8;
+  opacity: 0.98;
+  /*fixed*/
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 .SearchBar-sort-options ul {
@@ -82,16 +86,17 @@
   border: none;
   border-radius: 1.2rem;
   padding: 0.72rem 1.7rem;
-  background-color: var(--color-3);
-  color: var(--color-4);
+  background-color: var(--color-4);
+  color: var(--color-3);
   font-weight: 600;
+  font-size: 0.9rem;
   outline: none;
   transition: background-color 0.5s linear;
 }
 
 .SearchBar-submit button:hover {
   cursor: pointer;
-  background-color: var(--color-1);
+  background-color: var(--color-5);
 }
 .SearchBar-submit button:focus {
   outline: none;

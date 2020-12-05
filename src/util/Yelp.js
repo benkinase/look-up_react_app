@@ -32,7 +32,8 @@ const Yelp = {
             reviewCount: business.review_count,
           }));
         }
-      });
+      })
+      .catch((error) => console.log(error));
   },
 };
 
